@@ -11,8 +11,8 @@
         
         body {
             font-family: 'Poppins', sans-serif;
-            background-color: #fff9fa;
-            color: #5a4a4a;
+            background-color: #fff9fb;
+            color: #5a3e4e;
         }
         
         .title-font {
@@ -20,21 +20,24 @@
         }
         
         .soft-rose-bg {
-            background-color: #fff0f3;
+            background-color: #fce4ec;
         }
         
         .rose-text {
-            color: #d85a7f;
+            color: #d81b60;
+        }
+        
+        .promo-timer {
+            background: linear-gradient(135deg, #f06292 0%, #d81b60 100%);
         }
         
         .product-card {
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(216, 90, 127, 0.1);
         }
         
         .product-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(216, 90, 127, 0.15);
+            box-shadow: 0 10px 20px rgba(216, 27, 96, 0.1);
         }
         
         .color-option {
@@ -43,52 +46,64 @@
         }
         
         .color-option:hover, .color-option.active {
-            border-color: #d85a7f;
+            border-color: #d81b60;
             transform: scale(1.05);
         }
         
         .testimonial-card {
-            background: linear-gradient(135deg, #fff9fa 0%, #fff0f3 100%);
-            box-shadow: 0 4px 15px rgba(216, 90, 127, 0.1);
+            background: linear-gradient(to bottom right, #fff, #fce4ec);
         }
         
-        .promo-timer {
-            background: linear-gradient(135deg, #d85a7f 0%, #e88ba5 100%);
+        .price-tag {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .price-tag::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #f06292, #d81b60, #f06292);
+            background-size: 200% 100%;
+            animation: gradient 2s linear infinite;
+        }
+        
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .pulse {
             animation: pulse 2s infinite;
         }
         
         @keyframes pulse {
-            0% { box-shadow: 0 0 0 0 rgba(216, 90, 127, 0.7); }
-            70% { box-shadow: 0 0 0 10px rgba(216, 90, 127, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(216, 90, 127, 0); }
-        }
-        
-        .discount-badge {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background: linear-gradient(135deg, #d85a7f 0%, #e88ba5 100%);
-            color: white;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-weight: bold;
-            font-size: 14px;
-            box-shadow: 0 4px 10px rgba(216, 90, 127, 0.3);
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
         }
     </style>
 </head>
-<body class="soft-rose-bg">
+<body>
     <!-- Header Section -->
-    <header class="bg-white shadow-sm">
-        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+    <header class="soft-rose-bg py-4 shadow-md">
+        <div class="container mx-auto px-4 flex justify-between items-center">
             <div class="flex items-center">
-                <i class="fas fa-tshirt text-2xl rose-text mr-2"></i>
-                <span class="title-font text-xl font-semibold rose-text">FashionElegance</span>
+                <i class="fas fa-tshirt text-3xl rose-text mr-2"></i>
+                <span class="title-font text-2xl font-bold rose-text">FashionElegance</span>
             </div>
-            <div class="flex items-center space-x-4">
-                <a href="#" class="text-gray-600 hover:text-rose-500"><i class="fas fa-search"></i></a>
-                <a href="#" class="text-gray-600 hover:text-rose-500"><i class="fas fa-heart"></i></a>
-                <a href="#" class="text-gray-600 hover:text-rose-500"><i class="fas fa-shopping-cart"></i></a>
+            <div class="hidden md:flex space-x-6">
+                <a href="#" class="hover:text-pink-600">Beranda</a>
+                <a href="#" class="hover:text-pink-600">Produk</a>
+                <a href="#" class="hover:text-pink-600">Tentang Kami</a>
+                <a href="#" class="hover:text-pink-600">Kontak</a>
+            </div>
+            <div class="md:hidden">
+                <i class="fas fa-bars text-2xl rose-text"></i>
             </div>
         </div>
     </header>
@@ -96,459 +111,496 @@
     <!-- Main Product Image -->
     <section class="container mx-auto px-4 py-8">
         <div class="flex justify-center">
-            <div class="relative max-w-2xl">
-                <img src="https://i5.walmartimages.com/asr/daddb37d-f4c6-4257-be38-2eb09d8e462a.e97c0d925b9fcf498576072bea117c23.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF" 
-                     alt="Half Turtleneck Slim Fit Sleeveless Top" 
-                     class="w-full h-auto rounded-lg shadow-lg">
-                <div class="discount-badge">
-                    <span>DISKON 30%</span>
-                </div>
-            </div>
+            <img src="https://i5.walmartimages.com/asr/daddb37d-f4c6-4257-be38-2eb09d8e462a.e97c0d925b9fcf498576072bea117c23.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF" 
+                 alt="Half Turtleneck Slim Fit Sleeveless Top" 
+                 class="rounded-lg shadow-xl max-w-full h-auto">
         </div>
     </section>
 
-    <!-- Product Title and Description -->
+    <!-- Product Title & Description -->
     <section class="container mx-auto px-4 py-6">
-        <div class="max-w-3xl mx-auto">
-            <h1 class="title-font text-3xl md:text-4xl font-bold text-center mb-4 text-gray-800">Half Turtleneck Slim Fit Sleeveless Top Knitwear Women's Fashion</h1>
-            
-            <div class="bg-white p-6 rounded-lg shadow-sm mb-8">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
-                    <div class="flex">
-                        <span class="font-medium w-32">Panjang Baju:</span>
-                        <span>Reguler</span>
-                    </div>
-                    <div class="flex">
-                        <span class="font-medium w-32">Kerah:</span>
-                        <span>Stand</span>
-                    </div>
-                    <div class="flex">
-                        <span class="font-medium w-32">Jenis Kain:</span>
-                        <span>Rajut</span>
-                    </div>
-                    <div class="flex">
-                        <span class="font-medium w-32">Panjang Lengan:</span>
-                        <span>Tanpa Lengan</span>
-                    </div>
-                    <div class="flex">
-                        <span class="font-medium w-32">Jenis Pola:</span>
-                        <span>Polos</span>
-                    </div>
-                    <div class="flex">
-                        <span class="font-medium w-32">Gaya Lengan:</span>
-                        <span>Reguler</span>
-                    </div>
-                    <div class="flex">
-                        <span class="font-medium w-32">Gaya:</span>
-                        <span>Kasual</span>
-                    </div>
-                    <div class="flex">
-                        <span class="font-medium w-32">Asal:</span>
-                        <span>Tiongkok (Daratan)</span>
-                    </div>
-                </div>
-                
-                <div class="mt-6 border-t pt-4">
-                    <h3 class="font-semibold rose-text mb-2">Ukuran Bebas:</h3>
-                    <p>Cocok untuk Tubuh (50-75 Kg)</p>
-                    <div class="grid grid-cols-3 gap-4 mt-4">
-                        <div>
-                            <p class="font-medium">Panjang:</p>
-                            <p>55 CM / 22 Inci</p>
-                        </div>
-                        <div>
-                            <p class="font-medium">Dada:</p>
-                            <p>75CM - 105CM<br>30 inci hingga 38 inci</p>
-                        </div>
-                        <div>
-                            <p class="font-medium">Bahu:</p>
-                            <p>44CM / 17 Inci</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <h1 class="title-font text-3xl md:text-4xl font-bold text-center mb-4 rose-text">Half Turtleneck Slim Fit Sleeveless Top Knitwear Women's Fashion</h1>
+        
+        <div class="max-w-3xl mx-auto bg-white p-6 rounded-lg shadow-md">
+            <h2 class="title-font text-2xl font-semibold mb-4 text-gray-800">Deskripsi Produk</h2>
+            <ul class="space-y-2 text-gray-700">
+                <li class="flex items-start">
+                    <i class="fas fa-check-circle text-pink-500 mt-1 mr-2"></i>
+                    <span>Panjang Baju: Reguler</span>
+                </li>
+                <li class="flex items-start">
+                    <i class="fas fa-check-circle text-pink-500 mt-1 mr-2"></i>
+                    <span>Kerah: Stand</span>
+                </li>
+                <li class="flex items-start">
+                    <i class="fas fa-check-circle text-pink-500 mt-1 mr-2"></i>
+                    <span>Jenis Kain: Rajut</span>
+                </li>
+                <li class="flex items-start">
+                    <i class="fas fa-check-circle text-pink-500 mt-1 mr-2"></i>
+                    <span>Panjang Lengan (cm): Tanpa Lengan</span>
+                </li>
+                <li class="flex items-start">
+                    <i class="fas fa-check-circle text-pink-500 mt-1 mr-2"></i>
+                    <span>Jenis Pola: Polos</span>
+                </li>
+                <li class="flex items-start">
+                    <i class="fas fa-check-circle text-pink-500 mt-1 mr-2"></i>
+                    <span>Gaya Lengan: Reguler</span>
+                </li>
+                <li class="flex items-start">
+                    <i class="fas fa-check-circle text-pink-500 mt-1 mr-2"></i>
+                    <span>Gaya: Kasual</span>
+                </li>
+                <li class="flex items-start">
+                    <i class="fas fa-check-circle text-pink-500 mt-1 mr-2"></i>
+                    <span>Asal: Tiongkok (Daratan)</span>
+                </li>
+                <li class="flex items-start">
+                    <i class="fas fa-check-circle text-pink-500 mt-1 mr-2"></i>
+                    <span>Ukuran Bebas: Cocok untuk Tubuh (50-75 Kg)</span>
+                </li>
+                <li class="flex items-start">
+                    <i class="fas fa-check-circle text-pink-500 mt-1 mr-2"></i>
+                    <span>Panjang: 55 CM / 22 Inci</span>
+                </li>
+                <li class="flex items-start">
+                    <i class="fas fa-check-circle text-pink-500 mt-1 mr-2"></i>
+                    <span>Dada: 75CM - 105CM (30 inci hingga 38 inci)</span>
+                </li>
+                <li class="flex items-start">
+                    <i class="fas fa-check-circle text-pink-500 mt-1 mr-2"></i>
+                    <span>Bahu: 44CM / 17 Inci</span>
+                </li>
+            </ul>
         </div>
     </section>
 
     <!-- Product Advantages -->
-    <section class="container mx-auto px-4 py-8 bg-white">
-        <div class="max-w-4xl mx-auto">
-            <h2 class="title-font text-3xl font-bold text-center mb-8 rose-text">Keunggulan Produk Kami</h2>
+    <section class="container mx-auto px-4 py-8">
+        <h2 class="title-font text-3xl font-bold text-center mb-8 rose-text">Keunggulan Produk Kami</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="product-card bg-white p-6 rounded-lg shadow-md text-center">
+                <div class="text-pink-500 text-4xl mb-4">
+                    <i class="fas fa-heart"></i>
+                </div>
+                <h3 class="title-font text-xl font-semibold mb-2">Bahan Berkualitas Tinggi</h3>
+                <p class="text-gray-700">Dibuat dari bahan rajutan premium yang nyaman dipakai seharian tanpa membuat gerah.</p>
+            </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="product-card bg-rose-50 p-6 rounded-lg text-center">
-                    <div class="text-3xl rose-text mb-3">
-                        <i class="fas fa-check-circle"></i>
-                    </div>
-                    <h3 class="font-semibold mb-2">Bahan Berkualitas</h3>
-                    <p class="text-sm">Terbuat dari bahan rajutan premium yang lembut, nyaman, dan tidak mudah melar.</p>
+            <div class="product-card bg-white p-6 rounded-lg shadow-md text-center">
+                <div class="text-pink-500 text-4xl mb-4">
+                    <i class="fas fa-cut"></i>
                 </div>
-                
-                <div class="product-card bg-rose-50 p-6 rounded-lg text-center">
-                    <div class="text-3xl rose-text mb-3">
-                        <i class="fas fa-ruler-combined"></i>
-                    </div>
-                    <h3 class="font-semibold mb-2">Ukuran Universal</h3>
-                    <p class="text-sm">Desain slim fit yang cocok untuk berbagai bentuk tubuh (50-75 kg).</p>
+                <h3 class="title-font text-xl font-semibold mb-2">Potongan Slim Fit</h3>
+                <p class="text-gray-700">Desain slim fit yang menonjolkan bentuk tubuh dengan elegan tanpa terlalu ketat.</p>
+            </div>
+            
+            <div class="product-card bg-white p-6 rounded-lg shadow-md text-center">
+                <div class="text-pink-500 text-4xl mb-4">
+                    <i class="fas fa-palette"></i>
                 </div>
-                
-                <div class="product-card bg-rose-50 p-6 rounded-lg text-center">
-                    <div class="text-3xl rose-text mb-3">
-                        <i class="fas fa-tshirt"></i>
-                    </div>
-                    <h3 class="font-semibold mb-2">Gaya Elegan</h3>
-                    <p class="text-sm">Half turtleneck memberikan kesan anggun dan stylish untuk penampilan sehari-hari.</p>
-                </div>
+                <h3 class="title-font text-xl font-semibold mb-2">Warna Eksklusif</h3>
+                <p class="text-gray-700">Tersedia dalam berbagai pilihan warna eksklusif yang cocok untuk semua kesempatan.</p>
             </div>
         </div>
     </section>
 
     <!-- Product Details with Images -->
-    <section class="container mx-auto px-4 py-12">
-        <div class="max-w-4xl mx-auto">
-            <h2 class="title-font text-3xl font-bold text-center mb-8 rose-text">Detail Produk</h2>
+    <section class="container mx-auto px-4 py-8">
+        <h2 class="title-font text-3xl font-bold text-center mb-8 rose-text">Detail Produk</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                <img src="https://img.ltwebstatic.com/images3_spmp/2024/03/02/74/170932164608c99691c6cfe497acdb0c4390db0791_thumbnail_900x.webp" 
+                     alt="Detail Produk 1" 
+                     class="w-full h-auto">
+                <div class="p-4">
+                    <p class="text-gray-700">Desain half turtleneck yang stylish dan modern, memberikan kesan anggun.</p>
+                </div>
+            </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="text-center">
-                    <img src="https://img.ltwebstatic.com/images3_spmp/2024/03/02/74/170932164608c99691c6cfe497acdb0c4390db0791_thumbnail_900x.webp" 
-                         alt="Detail Produk 1" 
-                         class="w-full h-auto rounded-lg shadow-md mb-4">
-                    <p class="font-medium">Desain half turtleneck yang stylish</p>
+            <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                <img src="https://img.ltwebstatic.com/images3_spmp/2024/03/02/e5/170932164531740fa984b2dc217b39f4751da94fa8_thumbnail_900x.webp" 
+                     alt="Detail Produk 2" 
+                     class="w-full h-auto">
+                <div class="p-4">
+                    <p class="text-gray-700">Potongan tanpa lengan yang sempurna untuk tampilan kasual maupun formal.</p>
                 </div>
-                
-                <div class="text-center">
-                    <img src="https://img.ltwebstatic.com/images3_spmp/2024/03/02/e5/170932164531740fa984b2dc217b39f4751da94fa8_thumbnail_900x.webp" 
-                         alt="Detail Produk 2" 
-                         class="w-full h-auto rounded-lg shadow-md mb-4">
-                    <p class="font-medium">Potongan slim fit yang menawan</p>
-                </div>
-                
-                <div class="text-center md:col-span-2">
-                    <img src="https://img.ltwebstatic.com/images3_spmp/2024/06/24/2f/17191593464940bb21459c5481d9fbf5038ed60f1d_thumbnail_900x.webp" 
-                         alt="Detail Produk 3" 
-                         class="w-full h-auto rounded-lg shadow-md mb-4">
-                    <p class="font-medium">Tampilan keseluruhan yang elegan dan modern</p>
+            </div>
+            
+            <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                <img src="https://img.ltwebstatic.com/images3_spmp/2024/06/24/2f/17191593464940bb21459c5481d9fbf5038ed60f1d_thumbnail_900x.webp" 
+                     alt="Detail Produk 3" 
+                     class="w-full h-auto">
+                <div class="p-4">
+                    <p class="text-gray-700">Bahan rajutan halus dengan elastisitas yang baik untuk kenyamanan maksimal.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Color Variants -->
-    <section class="container mx-auto px-4 py-12 bg-white">
-        <div class="max-w-4xl mx-auto">
-            <h2 class="title-font text-3xl font-bold text-center mb-8 rose-text">Pilihan Warna</h2>
-            <p class="text-center mb-8">Tersedia dalam berbagai pilihan warna yang cantik dan elegan</p>
+    <section class="container mx-auto px-4 py-8">
+        <h2 class="title-font text-3xl font-bold text-center mb-8 rose-text">Pilihan Warna Eksklusif</h2>
+        
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-4">
+            <div class="color-option text-center">
+                <img src="https://img.ltwebstatic.com/images3_spmp/2024/03/02/e5/17093216455004be5bca6f4a6cef19cfe5d7774022_thumbnail_900x.webp" 
+                     alt="Warna Dasty" 
+                     class="w-full h-auto rounded-md mb-2">
+                <span class="font-medium">Dasty</span>
+            </div>
             
-            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
-                <div class="color-option text-center">
-                    <img src="https://img.ltwebstatic.com/images3_spmp/2024/03/02/e5/17093216455004be5bca6f4a6cef19cfe5d7774022_thumbnail_900x.webp" 
-                         alt="Warna Dasty" 
-                         class="w-full h-auto rounded-lg shadow-md mb-2">
-                    <p class="font-medium">Dasty</p>
-                </div>
-                
-                <div class="color-option text-center">
-                    <img src="https://i.ebayimg.com/images/g/ikAAAOSwz6pmohe3/s-l600.webp" 
-                         alt="Warna Mint" 
-                         class="w-full h-auto rounded-lg shadow-md mb-2">
-                    <p class="font-medium">Mint</p>
-                </div>
-                
-                <div class="color-option text-center">
-                    <img src="https://i.ebayimg.com/images/g/iPcAAOSwtRxmohe5/s-l600.webp" 
-                         alt="Warna Cream" 
-                         class="w-full h-auto rounded-lg shadow-md mb-2">
-                    <p class="font-medium">Cream</p>
-                </div>
-                
-                <div class="color-option text-center">
-                    <img src="https://i.ebayimg.com/images/g/waAAAOSwk65mohfB/s-l600.webp" 
-                         alt="Warna Hitam" 
-                         class="w-full h-auto rounded-lg shadow-md mb-2">
-                    <p class="font-medium">Hitam</p>
-                </div>
-                
-                <div class="color-option text-center">
-                    <img src="https://i.ebayimg.com/images/g/5OYAAOSwI-NmohfN/s-l600.webp" 
-                         alt="Warna Kopi" 
-                         class="w-full h-auto rounded-lg shadow-md mb-2">
-                    <p class="font-medium">Kopi</p>
-                </div>
-                
-                <div class="color-option text-center">
-                    <img src="https://down-id.img.susercontent.com/file/id-11134207-7r98o-lkyxv472ef5scb.webp" 
-                         alt="Warna Denim" 
-                         class="w-full h-auto rounded-lg shadow-md mb-2">
-                    <p class="font-medium">Denim</p>
-                </div>
-                
-                <div class="color-option text-center">
-                    <img src="https://i.ebayimg.com/images/g/IGIAAOSwDPJmohfI/s-l1600.webp" 
-                         alt="Warna Off White" 
-                         class="w-full h-auto rounded-lg shadow-md mb-2">
-                    <p class="font-medium">Off White</p>
-                </div>
+            <div class="color-option text-center">
+                <img src="https://i.ebayimg.com/images/g/ikAAAOSwz6pmohe3/s-l600.webp" 
+                     alt="Warna Mint" 
+                     class="w-full h-auto rounded-md mb-2">
+                <span class="font-medium">Mint</span>
+            </div>
+            
+            <div class="color-option text-center">
+                <img src="https://i.ebayimg.com/images/g/iPcAAOSwtRxmohe5/s-l600.webp" 
+                     alt="Warna Cream" 
+                     class="w-full h-auto rounded-md mb-2">
+                <span class="font-medium">Cream</span>
+            </div>
+            
+            <div class="color-option text-center">
+                <img src="https://i.ebayimg.com/images/g/waAAAOSwk65mohfB/s-l600.webp" 
+                     alt="Warna Hitam" 
+                     class="w-full h-auto rounded-md mb-2">
+                <span class="font-medium">Hitam</span>
+            </div>
+            
+            <div class="color-option text-center">
+                <img src="https://i.ebayimg.com/images/g/5OYAAOSwI-NmohfN/s-l600.webp" 
+                     alt="Warna Kopi" 
+                     class="w-full h-auto rounded-md mb-2">
+                <span class="font-medium">Kopi</span>
+            </div>
+            
+            <div class="color-option text-center">
+                <img src="https://down-id.img.susercontent.com/file/id-11134207-7r98o-lkyxv472ef5scb.webp" 
+                     alt="Warna Denim" 
+                     class="w-full h-auto rounded-md mb-2">
+                <span class="font-medium">Denim</span>
+            </div>
+            
+            <div class="color-option text-center">
+                <img src="https://i.ebayimg.com/images/g/IGIAAOSwDPJmohfI/s-l1600.webp" 
+                     alt="Warna Off White" 
+                     class="w-full h-auto rounded-md mb-2">
+                <span class="font-medium">Off White</span>
             </div>
         </div>
     </section>
 
     <!-- Testimonials -->
-    <section class="container mx-auto px-4 py-12">
-        <div class="max-w-4xl mx-auto">
-            <h2 class="title-font text-3xl font-bold text-center mb-8 rose-text">Kata Pelanggan</h2>
+    <section class="container mx-auto px-4 py-8">
+        <h2 class="title-font text-3xl font-bold text-center mb-8 rose-text">Apa Kata Pelanggan Kami</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="testimonial-card p-6 rounded-lg shadow-md">
+                <div class="flex items-center mb-4">
+                    <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
+                        <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Testimoni 1" class="w-full h-full object-cover">
+                    </div>
+                    <div>
+                        <h4 class="font-semibold">Dewi Anggraeni</h4>
+                        <div class="flex text-yellow-400">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+                <p class="text-gray-700">"Bahan sangat nyaman dipakai, tidak gerah sama sekali. Potongannya pas di badan dan warnanya persis seperti di foto. Pengiriman cepat dan packing rapi. Sangat puas!"</p>
+            </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="testimonial-card p-6 rounded-lg">
-                    <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 rounded-full bg-rose-100 flex items-center justify-center text-rose-500 mr-3">
-                            <i class="fas fa-user text-xl"></i>
-                        </div>
-                        <div>
-                            <h4 class="font-semibold">Sarah Wijaya</h4>
-                            <div class="flex text-yellow-400 text-sm">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
+            <div class="testimonial-card p-6 rounded-lg shadow-md">
+                <div class="flex items-center mb-4">
+                    <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Testimoni 2" class="w-full h-full object-cover">
+                    </div>
+                    <div>
+                        <h4 class="font-semibold">Rina Wijaya</h4>
+                        <div class="flex text-yellow-400">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
                         </div>
                     </div>
-                    <p class="text-sm italic">"Bajunya sangat nyaman dipakai dan bahannya adem. Desainnya simple tapi elegan, cocok untuk dipakai acara formal maupun casual. Ukurannya pas banget sesuai deskripsi. Pengiriman cepat dan packing rapi. Pokoknya recommended banget!"</p>
                 </div>
-                
-                <div class="testimonial-card p-6 rounded-lg">
-                    <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 rounded-full bg-rose-100 flex items-center justify-center text-rose-500 mr-3">
-                            <i class="fas fa-user text-xl"></i>
-                        </div>
-                        <div>
-                            <h4 class="font-semibold">Dian Permata</h4>
-                            <div class="flex text-yellow-400 text-sm">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star-half-alt"></i>
-                            </div>
+                <p class="text-gray-700">"Saya beli warna cream dan hitam, keduanya bagus banget! Cocok dipadukan dengan jeans atau rok. Kualitas jahitan rapi dan bahan tebal tapi tetap adem. Rekomended!"</p>
+            </div>
+            
+            <div class="testimonial-card p-6 rounded-lg shadow-md">
+                <div class="flex items-center mb-4">
+                    <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
+                        <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Testimoni 3" class="w-full h-full object-cover">
+                    </div>
+                    <div>
+                        <h4 class="font-semibold">Siti Nurhaliza</h4>
+                        <div class="flex text-yellow-400">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
                         </div>
                     </div>
-                    <p class="text-sm italic">"Awalnya ragu karena beli online, tapi setelah pakai langsung jatuh cinta! Bahannya lembut dan tidak panas. Warna sesuai gambar, tidak melar setelah dicuci. Pelayanannya juga ramah dan responsif. Sudah beli 2 warna dan mau koleksi warna lainnya."</p>
                 </div>
-                
-                <div class="testimonial-card p-6 rounded-lg md:col-span-2">
-                    <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 rounded-full bg-rose-100 flex items-center justify-center text-rose-500 mr-3">
-                            <i class="fas fa-user text-xl"></i>
-                        </div>
-                        <div>
-                            <h4 class="font-semibold">Rina Anggraeni</h4>
-                            <div class="flex text-yellow-400 text-sm">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <p class="text-sm italic">"Ini sudah pembelian kedua saya. Yang pertama warna hitam, sekarang beli lagi warna cream. Kualitas konsisten, jahitan rapi, dan bahannya premium. Cocok dipadukan dengan jeans atau rok. Teman-teman di kantor pada nanya beli dimana karena keliatan elegan. Terima kasih FashionElegance!"</p>
-                </div>
+                <p class="text-gray-700">"Barang sesuai deskripsi, ukuran pas untuk saya yang berat 60kg dengan tinggi 160cm. Warna dasty-nya cantik banget dan tidak luntur meski sudah beberapa kali dicuci."</p>
             </div>
         </div>
     </section>
 
-    <!-- Promo Countdown -->
+    <!-- Promo Timer -->
     <section class="container mx-auto px-4 py-8">
-        <div class="max-w-2xl mx-auto promo-timer text-white rounded-lg p-6 text-center">
-            <h3 class="text-xl font-bold mb-2">PROMO SPESIAL HARI INI</h3>
-            <p class="mb-4">Dapatkan Diskon Spesial Untuk Hari Ini Saja, Harga Akan Kembali Normal Setelah:</p>
+        <div class="promo-timer text-white rounded-xl p-6 text-center">
+            <h2 class="title-font text-2xl md:text-3xl font-bold mb-4">PROMO SPESIAL HARI INI!</h2>
+            <p class="text-lg mb-6">Diskon akan berakhir dalam:</p>
             
-            <div class="flex justify-center space-x-4 mb-4">
-                <div class="bg-white text-rose-600 rounded-lg p-3 w-16">
-                    <div class="text-2xl font-bold" id="countdown-hours">12</div>
+            <div class="flex justify-center space-x-2 md:space-x-4">
+                <div class="bg-white text-pink-600 rounded-lg p-3 w-16 md:w-20">
+                    <div class="text-2xl md:text-3xl font-bold" id="hours">00</div>
                     <div class="text-xs">Jam</div>
                 </div>
-                <div class="bg-white text-rose-600 rounded-lg p-3 w-16">
-                    <div class="text-2xl font-bold" id="countdown-minutes">45</div>
+                <div class="text-white text-3xl flex items-center">:</div>
+                <div class="bg-white text-pink-600 rounded-lg p-3 w-16 md:w-20">
+                    <div class="text-2xl md:text-3xl font-bold" id="minutes">00</div>
                     <div class="text-xs">Menit</div>
                 </div>
-                <div class="bg-white text-rose-600 rounded-lg p-3 w-16">
-                    <div class="text-2xl font-bold" id="countdown-seconds">30</div>
+                <div class="text-white text-3xl flex items-center">:</div>
+                <div class="bg-white text-pink-600 rounded-lg p-3 w-16 md:w-20">
+                    <div class="text-2xl md:text-3xl font-bold" id="seconds">00</div>
                     <div class="text-xs">Detik</div>
-                </div>
-            </div>
-            
-            <div class="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-8">
-                <div class="text-center">
-                    <p class="text-sm line-through">Harga Normal</p>
-                    <p class="text-2xl font-bold">Rp 231.000</p>
-                </div>
-                <div class="text-center">
-                    <p class="text-sm">Harga Promo</p>
-                    <p class="text-3xl font-bold">Rp 165.000</p>
-                </div>
-                <div class="text-center bg-white text-rose-600 px-4 py-2 rounded-lg">
-                    <p class="font-bold">Anda Hemat</p>
-                    <p class="text-xl">Rp 66.000</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Order Notes -->
-    <section class="container mx-auto px-4 py-8 bg-white">
-        <div class="max-w-2xl mx-auto">
-            <div class="bg-rose-50 p-4 rounded-lg">
-                <h3 class="font-semibold rose-text mb-2 text-center">Catatan Penting:</h3>
-                <ul class="list-disc pl-5 text-sm space-y-1">
-                    <li>Pengiriman 2 - 4 Hari Setelah Pemesanan</li>
-                    <li>Mohon Isi Alamat Dengan Lengkap</li>
-                    <li>100% Product Original</li>
-                </ul>
+    <section class="container mx-auto px-4 py-8">
+        <div class="bg-white rounded-lg shadow-md p-6 max-w-3xl mx-auto">
+            <h3 class="title-font text-xl font-semibold mb-4 text-center rose-text">Catatan Penting</h3>
+            <ul class="space-y-3 text-gray-700">
+                <li class="flex items-start">
+                    <i class="fas fa-truck text-pink-500 mt-1 mr-3"></i>
+                    <span>Pengiriman 2 - 4 Hari Setelah Pemesanan</span>
+                </li>
+                <li class="flex items-start">
+                    <i class="fas fa-map-marker-alt text-pink-500 mt-1 mr-3"></i>
+                    <span>Mohon Isi Alamat Dengan Lengkap</span>
+                </li>
+                <li class="flex items-start">
+                    <i class="fas fa-certificate text-pink-500 mt-1 mr-3"></i>
+                    <span>100% Product Original</span>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Price Section -->
+    <section class="container mx-auto px-4 py-8">
+        <div class="price-tag bg-white rounded-xl shadow-xl overflow-hidden max-w-2xl mx-auto">
+            <div class="text-center py-4 bg-pink-50">
+                <h3 class="title-font text-xl md:text-2xl font-bold text-pink-600">PROMO SPESIAL HARI INI</h3>
+                <p class="text-gray-700">Dapatkan Diskon Spesial Untuk Hari Ini Saja, Harga Akan Kembali Normal Setelah:</p>
+            </div>
+            
+            <div class="p-6 text-center">
+                <div class="flex justify-center items-baseline space-x-4">
+                    <div>
+                        <span class="text-gray-500 line-through text-lg">Rp 231.000</span>
+                        <span class="block text-pink-500 text-sm">Harga Normal</span>
+                    </div>
+                    <div>
+                        <span class="text-3xl md:text-4xl font-bold text-pink-600">Rp 165.000</span>
+                        <span class="block text-pink-500 text-lg font-semibold">Harga Promo</span>
+                    </div>
+                </div>
+                
+                <div class="mt-4 bg-green-50 text-green-700 rounded-lg p-3 inline-block">
+                    <i class="fas fa-piggy-bank mr-2"></i>
+                    <span class="font-semibold">Anda Hemat Rp 66.000 (28%)</span>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Promo Banner -->
+    <!-- Promo Image -->
     <section class="container mx-auto px-4 py-8">
-        <div class="max-w-4xl mx-auto relative">
+        <div class="relative rounded-xl overflow-hidden shadow-xl">
             <img src="https://m.media-amazon.com/images/I/71hjtqVLFNL.jpg" 
-                 alt="Promo Spesial" 
-                 class="w-full h-auto rounded-lg shadow-lg">
-            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-6 rounded-b-lg">
-                <h3 class="text-white text-2xl font-bold mb-2">DISKON HINGGA 30%</h3>
-                <p class="text-white">Segera dapatkan sebelum promo berakhir!</p>
+                 alt="Promo Diskon Spesial" 
+                 class="w-full h-auto">
+            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-pink-600 to-transparent p-4">
+                <h3 class="title-font text-2xl md:text-3xl font-bold text-white text-center">Diskon Hingga 28% Hari Ini!</h3>
+                <p class="text-white text-center">Segera dapatkan sebelum promo berakhir</p>
             </div>
         </div>
     </section>
 
     <!-- Order Form -->
-    <section class="container mx-auto px-4 py-12">
-        <div class="max-w-2xl mx-auto bg-white rounded-lg shadow-lg p-6">
-            <h2 class="title-font text-2xl font-bold text-center mb-6 rose-text">Form Pemesanan</h2>
-            
+    <section class="container mx-auto px-4 py-8">
+        <h2 class="title-font text-3xl font-bold text-center mb-8 rose-text">Form Pemesanan</h2>
+        
+        <div class="bg-white rounded-xl shadow-xl overflow-hidden max-w-3xl mx-auto">
             <!-- OrderOnline Embed Code -->
-            <div class="ooef">
+            <div class="ooef p-6">
                 <form class="orderonline-embed-form" data-username="tara" data-product-slug="half-turtleneck" data-product-id="68774e2067b6684ae606201a" id="oo-embed-form-half-turtleneck-3792" data-origin="orderonline">
-                    <div class="ooef-loader"><style>.ooef-loader{visibility: hidden;opacity: 0;position: absolute;left: 0;right: 0;top: 0;bottom: 0;display: flex;justify-content: center;align-items: center;flex-direction: column;animation: ooLoadingIn 10s ease;-webkit-animation: ooLoadingIn 10s ease;animation-fill-mode: forwards;overflow: hidden}@keyframes ooLoadingIn{0%{visibility: hidden;opacity: 0}20%{visibility: visible;opacity: 0}100%{visibility: visible;opacity: 1}}@-webkit-keyframes ooLoadingIn{0%{visibility: hidden;opacity: 0}20%{visibility: visible;opacity: 0}100%{visibility: visible;opacity: 1}}.ooef-loader>div,.ooef-loader>div:after{border-radius: 50%;width: 2.5rem;height: 2.5rem}.ooef-loader>div{font-size: 10px;position: relative;text-indent: -9999em;border: .25rem solid #f5f5f5;border-left: .25rem solid #55c4cf;-webkit-transform: translateZ(0);-ms-transform: translateZ(0);transform: translateZ(0);-webkit-animation: ooLoading 1.1s infinite linear;animation: ooLoading 1.1s infinite linear}.ooef-loader.error>div{border-left: .25rem solid #ff4500;animation-duration: 5s}@-webkit-keyframes ooLoading{0%{-webkit-transform: rotate(0);transform: rotate(0)}100%{-webkit-transform: rotate(360deg);transform: rotate(360deg)}}@keyframes ooLoading{0%{-webkit-transform: rotate(0);transform: rotate(0)}100%{-webkit-transform: rotate(360deg);transform: rotate(360deg)}}</style><div aria-live="polite" role="status"><div>Loading...</div></div></div>
+                    <div class="ooef-loader">
+                        <style>
+                            .ooef-loader{visibility: hidden;opacity: 0;position: absolute;left: 0;right: 0;top: 0;bottom: 0;display: flex;justify-content: center;align-items: center;flex-direction: column;animation: ooLoadingIn 10s ease;-webkit-animation: ooLoadingIn 10s ease;animation-fill-mode: forwards;overflow: hidden}
+                            @keyframes ooLoadingIn{0%{visibility: hidden;opacity: 0}20%{visibility: visible;opacity: 0}100%{visibility: visible;opacity: 1}}
+                            @-webkit-keyframes ooLoadingIn{0%{visibility: hidden;opacity: 0}20%{visibility: visible;opacity: 0}100%{visibility: visible;opacity: 1}}
+                            .ooef-loader>div,.ooef-loader>div:after{border-radius: 50%;width: 2.5rem;height: 2.5rem}
+                            .ooef-loader>div{font-size: 10px;position: relative;text-indent: -9999em;border: .25rem solid #f5f5f5;border-left: .25rem solid #55c4cf;-webkit-transform: translateZ(0);-ms-transform: translateZ(0);transform: translateZ(0);-webkit-animation: ooLoading 1.1s infinite linear;animation: ooLoading 1.1s infinite linear}
+                            .ooef-loader.error>div{border-left: .25rem solid #ff4500;animation-duration: 5s}
+                            @-webkit-keyframes ooLoading{0%{-webkit-transform: rotate(0);transform: rotate(0)}100%{-webkit-transform: rotate(360deg);transform: rotate(360deg)}}
+                            @keyframes ooLoading{0%{-webkit-transform: rotate(0);transform: rotate(0)}100%{-webkit-transform: rotate(360deg);transform: rotate(360deg)}}
+                        </style>
+                        <div aria-live="polite" role="status"><div>Loading...</div></div>
+                    </div>
                 </form>
             </div>
-            <script>
-                if (typeof xLogError != 'function') {
-                    var xLogError = function (error) {
-                        var req = new XMLHttpRequest();
-                        var payload = JSON.stringify({
-                            url: document.location.href,
-                            line: error.line,
-                            stack: error.stack
-                        });
-                        var params = 'message=' + encodeURIComponent(error.name) + '&payload=' + encodeURIComponent(payload) + '&type=embed&level=error';
-                        req.open('POST', 'https://api.orderonline.id/log', true);
-                        req.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-                        req.send(params);
-                    };
-                }
-                try {
-                    if (typeof xEmbedScript != 'function') {
-                        var xEmbedScript = function () {
-                            !function(w, d, e, v, id, t, s) {
-                                if (d.getElementById(id)) return;
-                                t = d.createElement(e);t.async = !0;t.src = v;t.id = id;
-                                s = d.getElementsByTagName(e)[0];
-                                s.parentNode.insertBefore(t, s);
-                            }(window, document, 'script', 'https://cdn.orderonline.id/js/embed-v2-slim.min.js?v=8.0.4', 'oo-embed-js');
-                        };
-                    }
-                    if (typeof xEmbedInit != 'function') {
-                        var xEmbedInit = function (w, n) {
-                            if (w.ooe) return;
-                            n = w.ooe = function() {
-                                n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments)
-                            };
-                            if (!w._ooe) w._ooe = n;
-                            n.push = n;n.loaded = !0;n.version = '8.0.4';n.queue = [];
-                        };
-                    }
-                    xEmbedInit(window);
-                    ooe('setup', 'redirect', 'https://tara.orderonline.id');
-                    ooe('init', '5f17f5338dcbdb1844126b24', '68774e2067b6684ae606201a', null, 'oo-embed-form-half-turtleneck-3792', {"mode":"page","action":"Klik untuk pemesanan","title":"Form Pemesanan","triggerPixel":true,"triggerGtm":false});
-                    if (!window.jQuery) {
-                        !function(w, d, e, v, id, t, s) {
-                            if (d.getElementById(id)) return;
-                            t = d.createElement(e);t.async = !0;t.src = v;t.id = id;
-                            t.addEventListener('load', xEmbedScript);
-                            s = d.getElementsByTagName(e)[0];
-                            s.parentNode.insertBefore(t, s);
-                        }(window, document, 'script', 'https://cdn.orderonline.id/js/vendor/jquery.min.js', 'oo-embed-jquery');
-                    } else {
-                        xEmbedScript();
-                    }
-                } catch (e) {
-                    xLogError(e);
-                    throw e;
-                }
-            </script>
-            <!-- End OrderOnline Embed Code -->
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-8">
+    <footer class="soft-rose-bg py-8 mt-12">
         <div class="container mx-auto px-4">
             <div class="flex flex-col md:flex-row justify-between items-center">
-                <div class="mb-4 md:mb-0">
+                <div class="mb-6 md:mb-0">
                     <div class="flex items-center">
-                        <i class="fas fa-tshirt text-2xl rose-text mr-2"></i>
-                        <span class="title-font text-xl font-semibold rose-text">FashionElegance</span>
+                        <i class="fas fa-tshirt text-3xl rose-text mr-2"></i>
+                        <span class="title-font text-2xl font-bold rose-text">FashionElegance</span>
                     </div>
-                    <p class="text-sm mt-2 text-gray-300">Temukan gaya elegan Anda dengan koleksi terbaik kami</p>
+                    <p class="mt-2 text-gray-700">Temukan gaya terbaikmu dengan koleksi eksklusif kami</p>
                 </div>
                 
                 <div class="flex space-x-6">
-                    <a href="#" class="text-gray-300 hover:text-white"><i class="fab fa-instagram text-xl"></i></a>
-                    <a href="#" class="text-gray-300 hover:text-white"><i class="fab fa-facebook text-xl"></i></a>
-                    <a href="#" class="text-gray-300 hover:text-white"><i class="fab fa-whatsapp text-xl"></i></a>
+                    <a href="#" class="text-gray-700 hover:text-pink-600">
+                        <i class=""></i>
+                    </a>
+                    <a href="#" class="text-gray-700 hover:text-pink-600">
+                        <i class=""></i>
+                    </a>
+                    <a href="#" class="text-gray-700 hover:text-pink-600">
+                        <i class=""></i>
+                    </a>
                 </div>
             </div>
             
-            <div class="border-t border-gray-700 mt-6 pt-6 text-center text-sm text-gray-300">
+            <div class="border-t border-pink-200 mt-8 pt-8 text-center text-gray-600">
                 <p>&copy; 2020 FashionElegance. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
 
-    <!-- Countdown Timer Script -->
+    <!-- Floating WhatsApp Button -->
+    <div class="fixed bottom-6 right-6 z-50">
+        <a href="#" class="bg-green-500 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-lg hover:bg-green-600 transition-colors">
+            <i class="fab fa-whatsapp text-2xl"></i>
+        </a>
+    </div>
+
     <script>
-        // Set the date we're counting down to (24 hours from now)
-        const countDownDate = new Date().getTime() + (24 * 60 * 60 * 1000);
+        // Promo Timer
+        function updateTimer() {
+            const now = new Date();
+            const endOfDay = new Date();
+            endOfDay.setHours(23, 59, 59, 999);
+            
+            const diff = endOfDay - now;
+            
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+            
+            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+        }
         
-        // Update the count down every 1 second
-        const x = setInterval(function() {
-            // Get today's date and time
-            const now = new Date().getTime();
-            
-            // Find the distance between now and the count down date
-            const distance = countDownDate - now;
-            
-            // Time calculations for hours, minutes and seconds
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-            
-            // Display the result
-            document.getElementById("countdown-hours").innerHTML = hours.toString().padStart(2, '0');
-            document.getElementById("countdown-minutes").innerHTML = minutes.toString().padStart(2, '0');
-            document.getElementById("countdown-seconds").innerHTML = seconds.toString().padStart(2, '0');
-            
-            // If the count down is finished, clear interval
-            if (distance < 0) {
-                clearInterval(x);
-                document.getElementById("countdown-hours").innerHTML = "00";
-                document.getElementById("countdown-minutes").innerHTML = "00";
-                document.getElementById("countdown-seconds").innerHTML = "00";
+        setInterval(updateTimer, 1000);
+        updateTimer();
+        
+        // Color selection
+        const colorOptions = document.querySelectorAll('.color-option');
+        colorOptions.forEach(option => {
+            option.addEventListener('click', () => {
+                colorOptions.forEach(opt => opt.classList.remove('active'));
+                option.classList.add('active');
+            });
+        });
+        
+        // Initialize the first color as active
+        if (colorOptions.length > 0) {
+            colorOptions[0].classList.add('active');
+        }
+        
+        // OrderOnline Embed Script
+        if (typeof xLogError != 'function') {
+            var xLogError = function (error) {
+                var req = new XMLHttpRequest();
+                var payload = JSON.stringify({ url: document.location.href, line: error.line, stack: error.stack });
+                var params = 'message=' + encodeURIComponent(error.name) + '&payload=' + encodeURIComponent(payload) + '&type=embed&level=error';
+                req.open('POST', 'https://api.orderonline.id/log', true);
+                req.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+                req.send(params);
+            };
+        }
+        
+        try {
+            if (typeof xEmbedScript != 'function') {
+                var xEmbedScript = function () {
+                    !function(w, d, e, v, id, t, s) {
+                        if (d.getElementById(id)) return;
+                        t = d.createElement(e);t.async = !0;t.src = v;t.id = id;
+                        s = d.getElementsByTagName(e)[0];
+                        s.parentNode.insertBefore(t, s);
+                    }(window, document, 'script', 'https://cdn.orderonline.id/js/embed-v2-slim.min.js?v=8.0.4', 'oo-embed-js');
+                };
             }
-        }, 1000);
+            
+            if (typeof xEmbedInit != 'function') {
+                var xEmbedInit = function (w, n) {
+                    if (w.ooe) return;
+                    n = w.ooe = function() {
+                        n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+                    };
+                    if (!w._ooe) w._ooe = n;
+                    n.push = n;n.loaded = !0;n.version = '8.0.4';n.queue = [];
+                };
+            }
+            
+            xEmbedInit(window);
+            ooe('setup', 'redirect', 'https://tara.orderonline.id');
+            ooe('init', '5f17f5338dcbdb1844126b24', '68774e2067b6684ae606201a', null, 'oo-embed-form-half-turtleneck-3792', {"mode":"page","action":"Klik untuk pemesanan","title":"Form Pemesanan","triggerPixel":true,"triggerGtm":false});
+            
+            if (!window.jQuery) {
+                !function(w, d, e, v, id, t, s) {
+                    if (d.getElementById(id)) return;
+                    t = d.createElement(e);t.async = !0;t.src = v;t.id = id;
+                    t.addEventListener('load', xEmbedScript);
+                    s = d.getElementsByTagName(e)[0];
+                    s.parentNode.insertBefore(t, s);
+                }(window, document, 'script', 'https://cdn.orderonline.id/js/vendor/jquery.min.js', 'oo-embed-jquery');
+            } else {
+                xEmbedScript();
+            }
+        } catch (e) {
+            xLogError(e);
+            throw e;
+        }
     </script>
 </body>
 </html>
